@@ -16,6 +16,7 @@
         <button
             type="button"
             class="mt-4 bg-sky-500 px-4 py-2 rounded-md cursor-pointer hover:bg-sky-600 transition"
+            @click="goFindEvents"
         >
           바로 행사 찾기
         </button>
@@ -34,6 +35,12 @@
 
 <script setup lang="ts">
 import EventCard from "../components/EventCard.vue";
+import {useRouter} from "vue-router";
+const router = useRouter();
+
+function goFindEvents() {
+  router.push("/events");
+}
 </script>
 
 <style scoped>
