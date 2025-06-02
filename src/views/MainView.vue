@@ -15,7 +15,7 @@
           같이행이 그 시작을 도와줄게요.</p>
         <button
             type="button"
-            class="mt-4 bg-sky-500 px-4 py-2 rounded-md cursor-pointer hover:bg-sky-600 transition"
+            class="mt-4 bg-[#569AFF] px-4 py-2 rounded-md cursor-pointer hover:bg-[#4383e0] transition"
             @click="goFindEvents"
         >
           바로 행사 찾기
