@@ -3,6 +3,8 @@ package org.joonda.withus.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -12,14 +14,22 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource))
+                /*
+                * csrf -> 개발 초기에는 disable
+                * TODO: 추후에 JWT 등으로 교체 요망
+                * */
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/login", "/signup").permitAll()
+                        .requestMatchers("/users/signup").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(flc -> flc
-                        .loginPage("/login")
+                .formLogin(flc -> flc.disable()
                 );
         return http.build();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 }
