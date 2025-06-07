@@ -5,7 +5,7 @@
 
 <mapper namespace="org.joonda.withus.mapper.UserMapper">
     <insert id="insertUser" parameterType="org.joonda.withus.dto.UserDto">
-        INSERT INTO users (email, password, name, birth_date, phone, gender, created_at)
-        VALUES (#{email}, #{password}, #{name}, #{birth_date}, #{phone}, #{gender}, #{created_at})
+        INSERT INTO users (email, password, name, birthDate, phone, gender, createdAt)
+        VALUES (#{email}, #{password}, #{name}, #{birthDate}, #{phone}, #{gender}, #{createdAt})
     </insert>
 </mapper>

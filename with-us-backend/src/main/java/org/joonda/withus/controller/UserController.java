@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
@@ -18,6 +20,6 @@ public class UserController {
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody UserDto userDto) {
         userService.signUp(userDto);
-        return ResponseEntity.ok("회원가입 성공");
+        return ResponseEntity.ok(Map.of("message", "회원가입 성공"));
     }
 }
