@@ -1,3 +1,7 @@
+<!--
+  회원가입 페이지
+  Last Update: 25.06.08
+-->
 <template>
   <div>
     <p class="p-4 text-center text-2xl font-bold">회원가입</p>
@@ -104,7 +108,6 @@ const years = computed(() => {
   for (let i = currentYear; i >= currentYear - 100; i--) {
     yearList.push(i.toString())
   }
-
   return yearList
 })
 
@@ -149,7 +152,7 @@ const submitForm = async () => {
     }
 
     console.log("전송 데이터 → ", data)
-    const response = await axiosInstance.post('/users/signup', data)
+    const response = await axiosInstance.post('/api/users/signup', data)
     alert(response.data.message)
     await router.push('/login')
   } catch (error) {
