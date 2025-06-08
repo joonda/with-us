@@ -1,3 +1,8 @@
+/*
+ * 스프링 시큐리티 설정 클래스
+ * Last Update: 25.06.08
+ * */
+
 package org.joonda.withus.config;
 
 import org.springframework.context.annotation.Bean;
@@ -20,7 +25,7 @@ public class SecurityConfig {
                 * */
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/users/signup").permitAll()
+                        .requestMatchers("/api/users/signup", "/api/auth/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(flc -> flc.disable()
