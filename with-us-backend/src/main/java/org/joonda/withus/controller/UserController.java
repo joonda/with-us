@@ -1,3 +1,8 @@
+/*
+ * 회원가입 컨트롤러
+ * Last Update: 25.06.08
+ * */
+
 package org.joonda.withus.controller;
 
 import lombok.RequiredArgsConstructor;
@@ -13,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
