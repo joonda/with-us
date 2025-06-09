@@ -11,7 +11,6 @@
       <div class="flex items-center space-x-4 font-bold">
         <RouterLink to="/events">행사 찾기</RouterLink>
         <RouterLink to="/finds">동행 찾기</RouterLink>
-        <RouterLink to="/making">동행 만들기</RouterLink>
       </div>
       <div class="flex items-center space-x-4 text-sm text-gray-400 w-28">
         <!--

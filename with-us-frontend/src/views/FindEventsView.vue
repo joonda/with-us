@@ -1,22 +1,29 @@
 <template>
-  <div class="max-w-5xl">
+  <div class="max-w-5xl mx-auto">
     <p class="p-4 text-center text-3xl font-bold">행사 목록</p>
+
     <ul class="grid grid-cols-3 gap-x-10 gap-y-6">
-      <!--
-        TODO: 추후 RouterLink로 id별로 이동하도록 구현.
-      -->
-      <li><EventCard /></li>
-      <li><EventCard /></li>
-      <li><EventCard /></li>
-      <li><EventCard /></li>
+      <li v-for="event in events" :key="event.eventId">
+        <EventCard :event="event" />
+      </li>
     </ul>
   </div>
-
 </template>
+
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import EventCard from '../components/EventCard.vue'
+import axiosInstance from "../lib/axios.ts";
 
-import EventCard from "../components/EventCard.vue";
+const events = ref([])
+
+onMounted(async () => {
+  try {
+    const res = await axiosInstance.get('/api/events')
+    console.log(res.data)
+    events.value = res.data
+  } catch (err) {
+    console.error('이벤트 불러오기 실패', err)
+  }
+})
 </script>
-<style scoped>
-
-</style>

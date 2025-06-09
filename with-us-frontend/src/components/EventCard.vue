@@ -1,17 +1,30 @@
 <template>
-  <div class="w-76 h-auto">
-    <img src="../assets/cardimg/1.png"  alt="1"/>
+  <div class="w-76 h-auto cursor-pointer" @click="goToMakeCompanion">
+    <img src="../assets/cardimg/1.png" alt="1" />
     <div class="p-1">
-      <p class="text-lg font-bold">성북세계음식축제 누리마실</p>
-      <p class="text-sm">2025-05-18 ~ 2025-05-18</p>
-      <p class="text-sm">서울 성북구</p>
+      <p class="text-lg font-bold">{{ event.title }}</p>
+      <p class="text-sm">{{ event.startDate }} ~ {{ event.endDate }}</p>
+      <p class="text-sm">{{ event.place }}</p>
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 
+const props = defineProps<{
+  event: {
+    eventId: number
+    title: string
+    startDate: string
+    endDate: string
+    place: string
+  }
+}>()
+
+const router = useRouter()
+
+function goToMakeCompanion() {
+  router.push({ name: 'Making', params: { id: props.event.eventId } })
+}
 </script>
-
-<style scoped>
-
-</style>
