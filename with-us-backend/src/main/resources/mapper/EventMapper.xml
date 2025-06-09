@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joonda.withus.mapper.EventMapper">
+
+    <select id="findAllEvents" resultType="org.joonda.withus.dto.EventDto">
+        SELECT eventId, title, place, startDate, endDate FROM events ORDER BY createdAt DESC
+    </select>
+
+    <select id="findEventById" parameterType="long" resultType="org.joonda.withus.dto.EventDto">
+        SELECT * FROM events WHERE eventId = #{id}
+    </select>
+</mapper>
