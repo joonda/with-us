@@ -24,17 +24,12 @@
     </div>
     <p class="p-4 text-center text-3xl font-bold">이달의 추천 문화 행사</p>
     <ul class="grid grid-cols-3 gap-x-10 gap-y-6">
-      <li><EventCard /></li>
-      <li><EventCard /></li>
-      <li><EventCard /></li>
-      <li><EventCard /></li>
     </ul>
   </div>
 
 </template>
 
 <script setup lang="ts">
-import EventCard from "../components/EventCard.vue";
 import {useRouter} from "vue-router";
 const router = useRouter();
 

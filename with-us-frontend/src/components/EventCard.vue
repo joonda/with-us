@@ -1,6 +1,7 @@
 <template>
   <div class="w-76 h-auto cursor-pointer" @click="goToMakeCompanion">
-    <img src="../assets/cardimg/1.png" alt="1" />
+    <!-- 이미지 경로를 DB에 저장하는 방법 고려  -->
+    <img :src="`src/assets/cardimg/${event.eventId}.png`" :alt="`${event.title}`"/>
     <div class="p-1">
       <p class="text-lg font-bold">{{ event.title }}</p>
       <p class="text-sm">{{ event.startDate }} ~ {{ event.endDate }}</p>
@@ -25,6 +26,6 @@ const props = defineProps<{
 const router = useRouter()
 
 function goToMakeCompanion() {
-  router.push({ name: 'Making', params: { id: props.event.eventId } })
+  router.push({ name: 'EventDetail', params: { id: props.event.eventId } })
 }
 </script>
