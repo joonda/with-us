@@ -6,10 +6,10 @@
 <mapper namespace="org.joonda.withus.mapper.EventMapper">
 
     <select id="findAllEvents" resultType="org.joonda.withus.dto.EventDto">
-        SELECT eventId, title, place, startDate, endDate FROM events ORDER BY createdAt DESC
+        SELECT eventId, title, place, startDate, endDate FROM events ORDER BY eventId DESC
     </select>
 
     <select id="findEventById" parameterType="long" resultType="org.joonda.withus.dto.EventDto">
-        SELECT * FROM events WHERE eventId = #{id}
+        SELECT eventid, title, description, place, startDate, endDate, organizer FROM events WHERE eventId = #{id}
     </select>
 </mapper>
