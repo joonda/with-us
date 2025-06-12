@@ -1,3 +1,8 @@
+<!--
+  메인 페이지
+  Last Update: 25.06.12
+-->
+
 <template>
   <div class="max-w-5xl">
     <div class="relative  w-full h-[360px]">
@@ -34,7 +39,7 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 
 function goFindEvents() {
-  router.push("/events");
+  router.push({ name: 'Events' });
 }
 </script>
 

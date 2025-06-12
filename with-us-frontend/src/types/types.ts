@@ -1,0 +1,22 @@
+/*
+* Type 정의
+* Last Update: 25.06.12
+* */
+
+export type EventDetailInfo = {
+    title: string
+    eventId: number
+    place: string
+    startDate: Date
+    endDate: Date
+    description: string
+    organizer: string
+}
+
+export type EventInfo = {
+    eventId: number,
+    title: string,
+    startDate: string,
+    endDate: string,
+    place: string,
+}

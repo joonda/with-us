@@ -1,9 +1,14 @@
+<!--
+  행사 이벤트 찾기
+  Last Update: 25.06.12
+-->
+
 <template>
   <div class="max-w-5xl mx-auto">
     <p class="p-4 text-center text-3xl font-bold">행사 목록</p>
 
     <ul class="grid grid-cols-3 gap-x-10 gap-y-6">
-      <li v-for="event in events" :key="event.eventId">
+      <li v-for="event in events" :key="event.eventId as number">
         <EventCard :event="event" />
       </li>
     </ul>
@@ -14,8 +19,9 @@
 import { ref, onMounted } from 'vue'
 import EventCard from '../components/EventCard.vue'
 import axiosInstance from "../lib/axios.ts";
+import type {EventInfo} from "../types/types.ts"
 
-const events = ref([])
+const events = ref<EventInfo[]>([])
 
 onMounted(async () => {
   try {
