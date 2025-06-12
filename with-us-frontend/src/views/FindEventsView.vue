@@ -8,7 +8,7 @@
     <p class="p-4 text-center text-3xl font-bold">행사 목록</p>
 
     <ul class="grid grid-cols-3 gap-x-10 gap-y-6">
-      <li v-for="event in events" :key="event.eventId as number">
+      <li v-for="event in events" :key="event.eventId">
         <EventCard :event="event" />
       </li>
     </ul>

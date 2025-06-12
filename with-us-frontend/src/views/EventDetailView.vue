@@ -53,17 +53,17 @@ import {useEventStore} from "../store/useEventStore.ts";
 const eventStore = useEventStore()
 
 const route = useRoute()
-const eventId = route.params.id
+const eventId = ref<number>(Number(route.params.id))
 
 const eventDetails = ref<EventDetailInfo | null>(null)
 
 const imagePath = computed(() => {
-  return new URL(`../assets/cardimg/${eventId}.png`, import.meta.url).href;
+  return new URL(`../assets/cardimg/${eventId.value}.png`, import.meta.url).href;
 });
 
 onMounted(async () => {
   try {
-    const res = await axiosInstance.get(`/api/events/${eventId}`)
+    const res = await axiosInstance.get(`/api/events/${eventId.value}`)
     console.log(res.data)
     eventDetails.value = res.data
   } catch (err) {
@@ -76,7 +76,7 @@ const router = useRouter()
 function goMakeCompanion() {
   if (eventDetails.value) {
     eventStore.setEvent(eventDetails.value)
-    router.push({ name: 'MakeCompanion', params: { id: eventId } })
+    router.push({ name: 'MakeCompanion', params: { id: eventId.value } })
   }
 }
 

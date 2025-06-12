@@ -16,7 +16,16 @@ export type EventDetailInfo = {
 export type EventInfo = {
     eventId: number,
     title: string,
-    startDate: string,
-    endDate: string,
+    startDate: Date,
+    endDate: Date,
     place: string,
+}
+
+export type GroupRecruitInfo = {
+    eventId: number,
+    title: string,
+    description: string,
+    maxParticipants: number,
+    meetingPlace: string,
+    recruitmentDeadline: string
 }
