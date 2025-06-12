@@ -25,7 +25,7 @@ public class SecurityConfig {
                 * */
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/api/users/signup", "/api/auth/login", "/api/events", "/api/events/**").permitAll()
+                        .requestMatchers("/api/users/signup", "/api/auth/login", "/api/events", "/api/events/**", "/api/groupRecruit/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(flc -> flc.disable()
