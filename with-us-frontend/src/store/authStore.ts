@@ -1,6 +1,6 @@
 /*
 * 로그인 상태 저장 관리
-* Last Update: 25.06.08
+* Last Update: 25.06.12
 * */
 
 import {defineStore} from "pinia";

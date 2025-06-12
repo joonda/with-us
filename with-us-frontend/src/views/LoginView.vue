@@ -1,6 +1,6 @@
 <!--
   로그인 페이지
-  Last Update: 25.06.08
+  Last Update: 25.06.12
 -->
 <template>
   <div>
@@ -59,7 +59,7 @@
 import {reactive, ref} from "vue";
 import axiosInstance from "../lib/axios.ts";
 import {useRouter} from "vue-router";
-import {useUserStore} from "../store/auth.ts";
+import {useUserStore} from "../store/authStore.ts";
 
 const router = useRouter()
 const store = useUserStore()

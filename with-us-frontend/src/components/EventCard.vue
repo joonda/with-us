@@ -1,5 +1,9 @@
+<!--
+  행사 카드 컴포넌트
+  Last Update: 25.06.12
+-->
 <template>
-  <div class="w-76 h-auto cursor-pointer" @click="goToMakeCompanion">
+  <div class="w-76 h-auto cursor-pointer" @click="goToEventDetail">
     <!-- 이미지 경로를 DB에 저장하는 방법 고려  -->
     <img :src="`src/assets/cardimg/${event.eventId}.png`" :alt="`${event.title}`"/>
     <div class="p-1">
@@ -25,7 +29,7 @@ const props = defineProps<{
 
 const router = useRouter()
 
-function goToMakeCompanion() {
+function goToEventDetail() {
   router.push({ name: 'EventDetail', params: { id: props.event.eventId } })
 }
 </script>

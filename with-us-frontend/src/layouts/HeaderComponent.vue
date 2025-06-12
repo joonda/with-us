@@ -1,6 +1,6 @@
 <!--
   페이지 Header Components
-  Last Update: 25.06.08
+  Last Update: 25.06.12
 -->
 <template>
   <nav class="w-full flex justify-center shadow-md">
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import {useUserStore} from "../store/auth.ts";
+import {useUserStore} from "../store/authStore.ts";
 
 const userStore = useUserStore()
 
