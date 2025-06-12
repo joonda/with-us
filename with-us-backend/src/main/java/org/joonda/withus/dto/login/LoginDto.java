@@ -3,7 +3,7 @@
  * Last Update: 25.06.08
  * */
 
-package org.joonda.withus.dto;
+package org.joonda.withus.dto.login;
 
 import lombok.Data;
 
