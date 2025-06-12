@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    동행 모집 관련 Mapper
+    Last Update: 25.06.12
+-->
+<mapper namespace="org.joonda.withus.mapper.GroupRecruitMapper">
+    <insert id="recruitGroup" parameterType="org.joonda.withus.dto.GroupRecruitDto">
+        INSERT INTO groupRecruitments (authorId, eventId, title, description, maxParticipants, currentParticipants,
+        meetingPlace, status, recruitmentDeadline)
+        VALUES (#{authorId}, #{eventId}, #{title}, #{description}, #{maxParticipants}, #{currentParticipants},
+        #{meetingPlace}, #{status},  <!-- enum이지만 자동으로 문자열로 처리됨 --> #{recruitmentDeadline})
+    </insert>
+</mapper>
