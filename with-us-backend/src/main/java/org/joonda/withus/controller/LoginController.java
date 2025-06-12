@@ -5,9 +5,9 @@
 
 package org.joonda.withus.controller;
 
-import org.joonda.withus.dto.ErrorResponseDto;
-import org.joonda.withus.dto.LoginDto;
-import org.joonda.withus.dto.LoginResponseDto;
+import org.joonda.withus.dto.login.ErrorResponseDto;
+import org.joonda.withus.dto.login.LoginDto;
+import org.joonda.withus.dto.login.LoginResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
