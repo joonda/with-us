@@ -18,4 +18,5 @@ export const useEventStore = defineStore('event', {
             this.selectedEvent = null
         }
     },
+    persist: true,
 })
