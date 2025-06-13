@@ -29,3 +29,10 @@ export type GroupRecruitInfo = {
     meetingPlace: string,
     recruitmentDeadline: string
 }
+
+export type ExtendsGroupRecruitInfo = GroupRecruitInfo & {
+    recruitmentId: number,
+    authorId: number,
+    currentParticipants: number,
+    status: string,
+}
