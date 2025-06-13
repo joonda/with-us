@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class GroupRecruitDto {
+    private Long recruitmentId;
     private Long authorId;
     private Long eventId;
     private String title;
@@ -24,4 +25,3 @@ public class GroupRecruitDto {
     private GroupRecruitStatus status;
     private LocalDateTime createdAt;
 }
-

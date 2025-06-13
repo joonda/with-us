@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,5 +23,10 @@ public class GroupRecruitController {
         Map<String, String> response = new HashMap<>();
         response.put("message", "동행 모집이 성공적으로 등록되었습니다.");
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/list")
+    public List<GroupRecruitDto> groupRecruitList() {
+        return groupRecruitService.groupRecruitList();
     }
 }

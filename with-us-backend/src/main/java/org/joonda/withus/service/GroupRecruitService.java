@@ -9,6 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -24,5 +26,9 @@ public class GroupRecruitService {
         groupRecruitDto.setCurrentParticipants(1);
         groupRecruitDto.setStatus(GroupRecruitStatus.RECRUITING);
         groupRecruitMapper.recruitGroup(groupRecruitDto);
+    }
+
+    public List<GroupRecruitDto> groupRecruitList() {
+        return groupRecruitMapper.groupRecruitList();
     }
 }

@@ -7,9 +7,12 @@ package org.joonda.withus.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.joonda.withus.dto.GroupRecruitDto;
-import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 @Mapper
 public interface GroupRecruitMapper {
     void recruitGroup(GroupRecruitDto groupRecruitDto);
+
+    List<GroupRecruitDto> groupRecruitList();
 }

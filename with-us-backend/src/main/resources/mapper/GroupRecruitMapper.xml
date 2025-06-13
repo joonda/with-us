@@ -13,4 +13,10 @@
         VALUES (#{authorId}, #{eventId}, #{title}, #{description}, #{maxParticipants}, #{currentParticipants},
         #{meetingPlace}, #{status},  <!-- enum이지만 자동으로 문자열로 처리됨 --> #{recruitmentDeadline})
     </insert>
+
+    <select id="groupRecruitList" resultType="org.joonda.withus.dto.GroupRecruitDto">
+        select recruitmentid, authorid, eventid, title, description, recruitmentdeadline,
+               maxparticipants, currentparticipants, meetingplace, status
+        from groupRecruitments
+    </select>
 </mapper>
