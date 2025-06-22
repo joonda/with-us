@@ -9,13 +9,13 @@
       <div>
         <label for="identify" class="block mb-1">아이디(이메일)</label>
         <div class="flex gap-2 justify-between">
-          <input v-model="form.identify" id="identify" type="email" class="p-4 flex-1 border border-gray-300 rounded-md"
+          <input v-model="form.identify" @blur="validateEmail" id="identify" type="email" class="p-4 flex-1 border border-gray-300 rounded-md"
                  placeholder="example@withus.com"/>
           <button class="px-4 border border-[#569AFF] text-[#569AFF] rounded-md">
             중복확인
           </button>
         </div>
-        <p class="mt-2 text-red-500">이메일 형식이 맞지 않습니다. 다시 입력해주세요</p>
+        <p v-if="emailError" class="mt-2 text-red-500">이메일 형식이 맞지 않습니다. 다시 입력해주세요</p>
       </div>
       <div>
         <label for="password" class="block mb-1">비밀번호</label>
@@ -99,6 +99,17 @@ const form = reactive<SignUpForm>({
   phone: '',
   gender: ''
 })
+
+/*
+* Email 형식 check 로직
+* */
+const emailError = ref<boolean>(false)
+
+function validateEmail() {
+  const regex = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
+
+  emailError.value = !regex.test(form.identify);
+}
 
 const confirmPassword = ref('')
 
