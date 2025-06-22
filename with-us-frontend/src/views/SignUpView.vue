@@ -11,7 +11,7 @@
         <div class="flex gap-2 justify-between">
           <input v-model="form.identify" @blur="validateEmail" id="identify" type="email" class="p-4 flex-1 border border-gray-300 rounded-md"
                  placeholder="example@withus.com"/>
-          <button class="px-4 border border-[#569AFF] text-[#569AFF] rounded-md">
+          <button class="px-4 border border-[#569AFF] text-[#569AFF] rounded-md" @click="duplicateEmail" :disabled="isEmailAvailable">
             중복확인
           </button>
         </div>
@@ -109,6 +109,23 @@ function validateEmail() {
   const regex = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
 
   emailError.value = !regex.test(form.identify);
+}
+
+/*
+* Email 중복확인 로직
+* */
+const isEmailAvailable = ref<boolean>(false)
+
+async function duplicateEmail() {
+  const path = "/api/users/emailCheck"
+  const params = { email: form.identify }
+
+  const res = await axiosInstance.get(path, {params})
+
+  if (res.status === 200) {
+    isEmailAvailable.value = !res.data.exists
+    alert(res.data.message)
+  }
 }
 
 const confirmPassword = ref('')
