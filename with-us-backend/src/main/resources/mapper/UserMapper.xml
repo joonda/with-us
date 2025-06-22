@@ -8,4 +8,8 @@
         INSERT INTO users (email, password, name, birthDate, phone, gender, createdAt)
         VALUES (#{email}, #{password}, #{name}, #{birthDate}, #{phone}, #{gender}, #{createdAt})
     </insert>
+
+    <select id="isEmailExists" parameterType="string" resultType="int">
+        select count(*) from users where email = #{email}
+    </select>
 </mapper>
