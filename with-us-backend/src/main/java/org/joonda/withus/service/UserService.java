@@ -14,13 +14,13 @@ public class UserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 
-    public void signUp(UserDto userDto) {
+    public int signUp(UserDto userDto) {
         LocalDateTime now = LocalDateTime.now();
         userDto.setCreatedAt(now);
 
-        String encodedPassword = passwordEncoder.encode(passwordEncoder.encode(userDto.getPassword()));
+        String encodedPassword = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(encodedPassword);
 
-        userMapper.insertUser(userDto);
+        return userMapper.insertUser(userDto);
     }
 }

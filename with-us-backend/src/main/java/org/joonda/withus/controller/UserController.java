@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.joonda.withus.dto.UserDto;
 import org.joonda.withus.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -24,7 +21,13 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody UserDto userDto) {
-        userService.signUp(userDto);
-        return ResponseEntity.ok(Map.of("message", "회원가입 성공"));
+        int result = userService.signUp(userDto);
+
+        if (result == 1) {
+            return ResponseEntity.ok(Map.of("message", "회원가입 성공"));
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
+
 }
