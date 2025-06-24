@@ -25,11 +25,17 @@ public class SecurityConfig {
                 * */
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/api/users/**", "/api/auth/login", "/api/events", "/api/events/**", "/api/groupRecruit/**").permitAll()
+                        .requestMatchers(
+                          "/api/users/**",
+                          "/api/auth/login",
+                          "/api/events",
+                          "/api/events/**",
+                          "/api/groupRecruit/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(flc -> flc.disable()
-                );
+                .formLogin(flc -> flc.disable())
+                .httpBasic(httpBasic -> httpBasic.disable());
         return http.build();
     }
 
