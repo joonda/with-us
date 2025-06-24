@@ -93,7 +93,7 @@ const handleLogin = async () => {
     store.login(token)
     await router.push('/')
   } catch (err : any) {
-    error.value = err.message || '로그인에 실패했습니다. 다시 시도해주세요'
+    error.value = err.response?.data?.message || '로그인에 실패했습니다. 다시 시도해주세요'
   } finally {
     loading.value = false
   }
