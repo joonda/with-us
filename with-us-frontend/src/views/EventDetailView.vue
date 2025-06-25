@@ -63,7 +63,14 @@ const imagePath = computed(() => {
 
 onMounted(async () => {
   try {
-    const res = await axiosInstance.get(`/api/events/${eventId.value}`)
+    const token = localStorage.getItem('token');
+
+    const res = await axiosInstance.get(`/api/events/${eventId.value}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
     console.log(res.data)
     eventDetails.value = res.data
   } catch (err) {

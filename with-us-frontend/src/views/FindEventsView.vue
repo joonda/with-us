@@ -25,7 +25,14 @@ const events = ref<EventInfo[]>([])
 
 onMounted(async () => {
   try {
-    const res = await axiosInstance.get('/api/events')
+
+    const token = localStorage.getItem('token');
+
+    const res = await axiosInstance.get('/api/events',
+        { headers: {
+          Authorization: `Bearer ${token}`
+          }
+        })
     console.log(res.data)
     events.value = res.data
   } catch (err) {

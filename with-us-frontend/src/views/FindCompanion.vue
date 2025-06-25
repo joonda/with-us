@@ -41,7 +41,12 @@ const groupList = ref<ExtendsGroupRecruitInfo[]>([])
 
 onMounted(async () => {
   try {
-    const res = await axiosInstance.get('/api/groupRecruit/list')
+    const token = localStorage.getItem('token');
+
+    const res = await axiosInstance.get('/api/groupRecruit/list',
+        { headers: {
+          Authorization: `Bearer ${token}`
+          } })
     console.log(res.data)
     groupList.value = res.data
   } catch (err) {
