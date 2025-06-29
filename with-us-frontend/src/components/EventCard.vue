@@ -1,7 +1,14 @@
 <!--
-  행사 카드 컴포넌트
-  Last Update: 25.06.12
+  ===========================================
+  최초작성자    : 이현준
+  최초작성일    : 25.06.09.
+  수정자       : 이현준
+  마지막 수정일 : 25.06.29.
+  설명        : 행사 카드 컴포넌트
+  수정내용     : props의 type 변경 (Date)
+  ===========================================
 -->
+
 <template>
   <div class="w-76 h-auto cursor-pointer" @click="goToEventDetail">
     <!-- 이미지 경로를 DB에 저장하는 방법 고려  -->
@@ -21,8 +28,8 @@ const props = defineProps<{
   event: {
     eventId: number
     title: string
-    startDate: string
-    endDate: string
+    startDate: Date
+    endDate: Date
     place: string
   }
 }>()

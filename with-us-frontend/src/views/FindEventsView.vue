@@ -1,6 +1,12 @@
 <!--
-  행사 이벤트 찾기
-  Last Update: 25.06.12
+  ===========================================
+  최초작성자    : 이현준
+  최초작성일    : 25.06.13.
+  수정자       : 이현준
+  마지막 수정일 : 25.06.29.
+  설명        : 동행 찾기 페이지
+  수정내용     : 로그인 상태가 아닐 시, 강제로 login 화면으로 push 추가
+  ===========================================
 -->
 
 <template>
@@ -20,8 +26,10 @@ import { ref, onMounted } from 'vue'
 import EventCard from '../components/EventCard.vue'
 import axiosInstance from "../lib/axios.ts";
 import type {EventInfo} from "../types/types.ts"
+import {useRouter} from "vue-router";
 
 const events = ref<EventInfo[]>([])
+const router = useRouter()
 
 onMounted(async () => {
   try {
@@ -37,6 +45,7 @@ onMounted(async () => {
     events.value = res.data
   } catch (err) {
     console.error('이벤트 불러오기 실패', err)
+    await router.push('/login')
   }
 })
 </script>
